@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="images/HR.png" rel="icon">
+	<title>HR (List of workers)</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" href="/static/js/bootstrap.bundle.js" th:href="@{/js/bootstrap.bundle.js}">
+    <link rel="stylesheet" type="text/css" href="/static/js/main.js" th:href="@{/js/main.js}">
+
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css" th:href="@{/css/main.css}">
+</head>
+<body>
+
+
+
+<div class="main" id="main">
+	<div class="navbar">
+		<div class="icon1">
+			<h2 class="logo"><div class="brand"><h1><span>C</span>heck<span>IT</span></h1></div></h2>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+	<div class="content">
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<h1>HR Manager</h1>
+				<p class="par">An HR manager is a person who manages the staff: motivates, evaluates, and searches for the right specialists. He should have an idea about employees, add a new employee, delete, make personnel changes, etc.</p>
+
+				<button class="cn"><a href="#function">Control <ion-icon name="arrow-down-outline"></ion-icon></a></button>
+			</div>
+			<div class="col-lg-1">
+				
+			</div>
+			<div class="col-lg-5">
+				<img src="/static/images/HR.png" th:src="@{images/HR.png}" width="350">
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+<section class="function" id="function">
+	<div class="menu">
+		<a href="/HR"><ion-icon name="arrow-undo-outline" class="iconn"></ion-icon></a>
+		<table class="styled-table">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Salary</th>
+				<th>Schedule</th>
+				<th>Weekend</th>
+			</tr>
+			</thead>
+			<tbody th:each="el:${workers}">
+			<tr>
+				<td th:text="${el.name}"></td>
+				<td th:text="${el.salary}"></td>
+				<td th:text="${el.time_of_work}"></td>
+				<td th:text="${el.weekend}"></td>
+			</tr>
+			<!-- and so on... -->
+			</tbody>
+		</table>
+	</div>
+</section>
+
+
+<section id="footer">
+	<div class="footer container">
+		<div class="brand"><h1><span>C</span>heck<span>IT</span></h1></div>
+		<br>
+		<div class="social-icon">
+			<div class="social-item">
+				<a href="#"><img src="images/instagram.png"></a>
+			</div>
+			<div class="social-item">
+				<a href="#"><img src="images/twitter.png"></a>
+			</div>
+			<div class="social-item">
+				<a href="#"><img src="images/facebook.png"></a>
+			</div>
+		</div>
+		<p>Copyright © ERISA. All right reserved</p>
+	</div>
+</section>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>
+<script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
+
+
+</body>
+</html>

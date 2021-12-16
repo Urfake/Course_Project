@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Director</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ><a href="/director">View</a></li>
+                <li class="active"><a href="/director/add">Add</a></li>
+<!--                <li><a href="#">Delete</a></li>-->
+<!--                <li><a href="#">Update</a></li>-->
+<!--                <li><a href="#">Salary</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container w">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Who do you want to add?</h1>
+        </div>
+    </div>
+    <div class="row centered">
+        <br> <br> <br>
+        <div class="col-lg-6">
+            <a href="/director/add/manager"><img src="/static/images/HR.png" th:src="@{/images/HR.png}" alt="HR-Manager" height="200px"></a>
+            <h1>HR manager</h1>
+            <p>Click on the photo of HR-Manager if you want to add him</p>
+        </div>
+
+        <div class="col-lg-6">
+            <a href="/director/add/worker"><img src="/static/images/employee.png" th:src="@{/images/employee.png}" alt="Worker" height="200px"></a>
+            <h1>Worker</h1>
+            <p>Click on the photo of Worker if you want to add him</p>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+</body>
+</html>
