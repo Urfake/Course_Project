@@ -33,6 +33,6 @@ public class MainController {
             return "redirect:/HR";
         }
         else
-            return "redirect:/r/";
+            return "redirect:/worker";
     }
 }

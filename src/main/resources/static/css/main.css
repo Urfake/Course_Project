@@ -95,7 +95,7 @@
 
 .form {
 	width: 350px;
-	height: 350px;
+	height: 380px;
 	background: linear-gradient(to top, rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%);
 	position: absolute;
 	top: -30px;
@@ -498,7 +498,7 @@
 }
 
 .menu.active li {
-	transform: rotate(calc(360deg / 4 * var(--i)));
+	transform: rotate(calc(360deg / 5 * var(--i)));
 }
 
 .menu li a {
@@ -509,7 +509,7 @@
 	height: 80px;
 	background: crimson;
 	border-radius: 50%;
-	transform: rotate(calc(360deg / -4 var(--i)));
+	transform: rotate(calc(360deg / -5 var(--i)));
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
 	color: #162c3b;
 	transition: 1s;
@@ -628,6 +628,7 @@
 }
 .styled-table {
 	background: linear-gradient(45deg, #1a2d3d, #7094ce);
+	position: relative;
 	border-collapse: collapse;
 	margin: 25px 0;
 	font-size: 0.9em;

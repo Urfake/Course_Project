@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="images/HR.png" rel="icon">
+	<link href="/static/images/HR.png" rel="icon" th:href="@{/images/HR.png}">
 	<title>HR Manager</title>
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
@@ -13,9 +13,9 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
-
-
-
+<form th:action="@{/logout}" method="post" style="position: fixed; top: 600px; right: 40px;">
+	<button style="width: 60px; height: 60px; border-radius: 50%;background: crimson; color: black; font-size: 24px" class="text-center" name="logout" value="logout" type="submit"><ion-icon  name="log-out-outline"></ion-icon></button>
+</form>
 <div class="main" id="main">
 	<div class="navbar">
 		<div class="icon1">
@@ -39,14 +39,14 @@
 				
 			</div>
 			<div class="col-lg-5">
-				<img src="images/HR.png" width="350">
+				<img src="/static/images/HR.png" th:src="@{/images/HR.png}" width="350">
 			</div>
 			</div>
 		</div>
 	</div>
 </div>
-	
-	
+
+
 <section class="function" id="function">
 	<div class="menu">
 		<div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
@@ -63,29 +63,28 @@
 </section>
 
 
+
 <section id="footer">
 	<div class="footer container">
 		<div class="brand"><h1><span>C</span>heck<span>IT</span></h1></div>
 		<br>
 		<div class="social-icon">
 			<div class="social-item">
-				<a href="#"><img src="images/instagram.png"></a>
+				<a href="#"><img src="/static/images/instagram.png" th:src="@{/images/instagram.png}"></a>
 			</div>
 			<div class="social-item">
-				<a href="#"><img src="images/twitter.png"></a>
+				<a href="#"><img src="/static/images/twitter.png" th:src="@{/images/twitter.png}"></a>
 			</div>
 			<div class="social-item">
-				<a href="#"><img src="images/facebook.png"></a>
+				<a href="#"><img src="/static/images/facebook.png" th:src="@{/images/facebook.png}"></a>
 			</div>
 		</div>
 		<p>Copyright © ERISA. All right reserved</p>
 	</div>
 </section>
 
-
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>
 <script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
 
 <script>

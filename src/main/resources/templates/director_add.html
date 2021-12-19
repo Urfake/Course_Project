@@ -1,57 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Director</title>
+    <title>Director add</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        /* Remove the navbar's default rounded borders and increase the bottom margin */
-        .navbar {
-            margin-bottom: 50px;
-            border-radius: 0;
-        }
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" href="/static/js/bootstrap.bundle.js" th:href="@{/bootstrap.bundle.js}">
+    <link rel="stylesheet" type="text/css" href="/static/js/main.js" th:href="@{/js/main.js}">
+    <link rel="stylesheet" type="text/css" href="/static/css/director.css" th:href="@{/css/director.css}">
 
-        /* Remove the jumbotron's default bottom margin */
-        .jumbotron {
-            margin-bottom: 0;
-        }
 
-        /* Add a gray background color and some padding to the footer */
-        footer {
-            background-color: #f2f2f2;
-            padding: 25px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li ><a href="/director">View</a></li>
-                <li class="active"><a href="/director/add">Add</a></li>
-<!--                <li><a href="#">Delete</a></li>-->
-<!--                <li><a href="#">Update</a></li>-->
-<!--                <li><a href="#">Salary</a></li>-->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+<section>
+    <img src="/static/images/city.jpg" th:src="@{/images/city.jpg}" id="bg" width="2049" height="1152">
+    <h2 id="text">Director</h2>
+    <img src="/static/images/me.png" th:src="@{/images/me.png}" id="man" width="2049" height="1152">
+    <img src="/static/images/left.png" th:src="@{/images/left.png}" id="left" width="2049" height="1152">
+    <img src="/static/images/right.png" th:src="@{/images/right.png}" id="right" width="2049" height="1152">
+</section>
 
 <div class="container w">
     <div class="row">

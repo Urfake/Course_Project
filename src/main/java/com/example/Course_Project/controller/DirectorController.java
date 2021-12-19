@@ -33,10 +33,6 @@ public class DirectorController {
     public String director(Model model){
         return "director";
     }
-    @GetMapping("/director/about")
-    public String about(Model model){return "director_about";}
-    @GetMapping("/director/portfolio")
-    public String portfolio(Model model){return "director_portfolio";}
     @GetMapping("/director/delete")
     public String delete(Model model){
         Iterable<Manager> managers = managerRepository.findAll();
@@ -60,11 +56,6 @@ public class DirectorController {
         model.addAttribute("managers",managers);
         model.addAttribute("workers",workers);
         return "director_list";
-    }
-
-    @GetMapping("/director/add")
-    public String director_add(Model model){
-        return "director_add";
     }
 
     @GetMapping("/director/add/worker")
@@ -94,7 +85,7 @@ public class DirectorController {
         Manager manager = new Manager(name, salary);
         User user = new User(username, password);
         manager.setUser(user);
-        user.setRoles(Collections.singleton(Role.WORKER));
+        user.setRoles(Collections.singleton(Role.MANAGER));
         user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword()));
         userRepository.save(user);
         managerRepository.save(manager);
@@ -112,19 +103,7 @@ public class DirectorController {
         model.addAttribute("manager",manager);
         return "director_view_manager";
     }
-
-    @GetMapping("/director/manager/{id}/edit")
-    public String edit_manager(@PathVariable(value = "id") long id, Model model){
-        if (!managerRepository.existsById(id))
-            return "redirect:/director";
-
-        Optional<Manager> man = managerRepository.findById(id);
-        ArrayList<Manager> manager = new ArrayList<>();
-        man.ifPresent(manager::add);
-        model.addAttribute("manager",manager);
-        return "director_edit_manager";
-    }
-    @PostMapping("/director/manager/{id}/edit")
+    @PostMapping("/director/manager/{id}")
     public String director_man_edit(@PathVariable(value = "id") long id,@RequestParam String name,@RequestParam String time_of_work,@RequestParam String weekend,@RequestParam int salary, Model model){
         Manager manager = managerRepository.findById(id).orElseThrow();
         manager.setName(name);
@@ -155,25 +134,14 @@ public class DirectorController {
         model.addAttribute("worker",worker);
         return "director_view_worker";
     }
-
-    @GetMapping("/director/worker/{id}/edit")
-    public String edit_worker(@PathVariable(value = "id") long id, Model model){
-        if (!workerRepository.existsById(id))
-            return "redirect:/director";
-
-        Optional<Worker> work = workerRepository.findById(id);
-        ArrayList<Worker> worker = new ArrayList<>();
-        work.ifPresent(worker::add);
-        model.addAttribute("worker",worker);
-        return "director_edit_worker";
-    }
-    @PostMapping("/director/worker/{id}/edit")
-    public String director_worker_edit(@PathVariable(value = "id") long id,@RequestParam String name,@RequestParam String time_of_work,@RequestParam String weekend,@RequestParam int salary, Model model){
+    @PostMapping("/director/worker/{id}")
+    public String director_worker_edit(@PathVariable(value = "id") long id,@RequestParam String name,@RequestParam String time_of_work,@RequestParam String weekend,@RequestParam int salary,@RequestParam int prize, Model model){
         Worker worker = workerRepository.findById(id).orElseThrow();
         worker.setName(name);
         worker.setTime_of_work(time_of_work);
         worker.setWeekend(weekend);
         worker.setSalary(salary);
+        worker.setPrize(prize);
 
         workerRepository.save(worker);
         return "redirect:/director";

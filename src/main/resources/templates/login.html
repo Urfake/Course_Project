@@ -32,13 +32,15 @@
 				<input type="username" name="username" placeholder="Username">
 				<input type="password" name="password" placeholder="Password">
 				<button class="btnn" type="submit" value="submit">Login</button>
-				<button class="btnn2"><a href="/" style="text-decoration: none; color: black;">Cancel</a></button>
-				<div th:if="${param.error}">
+				<div th:if="${param.error}" style="margin-top: 10px; text-align: center; color: red">
 					Invalid username and password.
 				</div>
-				<div th:if="${param.logout}">
+				<div th:if="${param.logout}" style="margin-top: 10px; text-align: center; color: red">
 					You have been logged out.
 				</div>
+				<button class="btnn2"><a href="/" style="text-decoration: none; color: black;">Cancel</a></button>
+
+
 			</form>
 		</div>
 	</div>

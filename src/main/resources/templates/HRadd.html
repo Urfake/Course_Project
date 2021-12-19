@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,8 @@
 <body>
 
 <header>
-	<img src="/static/images/header.jpeg" th:src="@{images/header.jpeg}" class="banner">
-	<a href="HR.html" class="logo">CHECKIT.</a>
+	<img src="/static/images/header.jpeg" th:src="@{/images/header.jpeg}" class="banner">
+	<a href="/HR" class="logo">CHECKIT.</a>
 </header>
 
 <div class="containerr">
