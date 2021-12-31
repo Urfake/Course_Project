@@ -20,14 +20,14 @@
 
 <section>
   <img src="/static/images/city.jpg" th:src="@{/images/city.jpg}" id="bg" width="2049" height="1152">
-  <h2 id="text">Director</h2>
+  <h2 id="text">Direktor</h2>
   <img src="/static/images/me.png" th:src="@{/images/me.png}" id="man" width="2049" height="1152">
   <img src="/static/images/left.png" th:src="@{/images/left.png}" id="left" width="2049" height="1152">
   <img src="/static/images/right.png" th:src="@{/images/right.png}" id="right" width="2049" height="1152">
 </section>
 
 
-<section class="function" id="function">
+<div class="function" id="function">
   <div class="menu">
     <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
     <li style="--i:0;">
@@ -43,10 +43,10 @@
       <a href="/director/delete"><ion-icon name="close-circle-outline"></ion-icon></a>
     </li>
     <li style="--i:4;">
-      <a href="/director/delete"><ion-icon name="construct-outline"></ion-icon></a>
+      <a href="/director/change"><ion-icon name="construct-outline"></ion-icon></a>
     </li>
   </div>
-</section>
+</div>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>

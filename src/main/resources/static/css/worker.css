@@ -248,6 +248,7 @@ a {
 	transition: 1s;
 	overflow: hidden;
 	text-decoration: none;
+	left: 390px;
 }
 
 a:hover {

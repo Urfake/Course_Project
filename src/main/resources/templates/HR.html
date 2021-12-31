@@ -11,6 +11,28 @@
     <link rel="stylesheet" type="text/css" href="/static/js/main.js" th:href="@{/js/main.js}">
 
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css" th:href="@{/css/main.css}">
+
+	<style>
+		.menu.active li {
+			transform: rotate(calc(360deg / 3 * var(--i)));
+		}
+
+		.menu li a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 80px;
+			height: 80px;
+			background: crimson;
+			border-radius: 50%;
+			transform: rotate(calc(360deg / -3 var(--i)));
+			box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+			color: #162c3b;
+			transition: 1s;
+			font-size: 25px;
+		}
+
+	</style>
 </head>
 <body>
 <form th:action="@{/logout}" method="post" style="position: fixed; top: 600px; right: 40px;">
@@ -31,9 +53,9 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<h1>HR Manager</h1>
-				<p class="par">An HR manager is a person who manages the staff: motivates, evaluates, and searches for the right specialists. He should have an idea about employees, add a new employee, delete, make personnel changes, etc.</p>
+				<p class="par">Ein HR-Manager ist eine Person, die die Mitarbeiter führt: motiviert, bewertet und sucht die richtigen Spezialisten. Er sollte eine Vorstellung von Mitarbeitern haben, einen neuen Mitarbeiter hinzufügen, löschen, Personaländerungen vornehmen usw.</p>
 
-				<button class="cn"><a href="#function">Control <ion-icon name="arrow-down-outline"></ion-icon></a></button>
+				<button class="cn"><a href="#function">Kontrolle <ion-icon name="arrow-down-outline"></ion-icon></a></button>
 			</div>
 			<div class="col-lg-1">
 				

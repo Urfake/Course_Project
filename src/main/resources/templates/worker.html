@@ -17,76 +17,83 @@
     <link href="/static/vendor/owl.carousel/assets/owl.carousel.min.css" th:href="@{/vendor/owl.carousel/assets/owl.carousel.min.css}" rel="stylesheet">
     <link href="/static/vendor/aos/aos.css" th:href="@{/vendor/aos/aos.css}" rel="stylesheet">
 
+	<style>
+		.sec{
+			background: url("/images/back.jpg");
+			background-size: cover;
+		}
+	</style>
 </head>
 <body>
-
+<form th:action="@{/logout}" method="post" style="position: fixed; top: 600px; right: 40px;z-index: 1">
+	<button style="width: 60px; height: 60px; border-radius: 50%;background: crimson; color: black; font-size: 24px" class="text-center" name="logout" value="logout" type="submit"><ion-icon  name="log-out-outline"></ion-icon></button>
+</form>
 <section>
 	<div class="skew1">
 		<br><br><br><br><br>
-		<h2 class="layer" id="scew">W O R K E R</h2>
+		<h2 class="layer" id="scew">A R B E I T E R</h2>
 	</div>
 	<div class="textBox">
 		<div class="skew2">
 			<br><br><br><br><br>
-			<h2 class="layer" id="scew">W O R K E R</h2>
+			<h2 class="layer" id="scew">A R B E I T E R</h2>
 		</div>
 	</div>
 </section>
 
 
 
-<div class="sec" style="background: #f5f8fd; height: 500px">
+<div class="sec" style="border-top:7px solid white;background-size: cover; height: 1000px">
 	<div id="portfolio" class="portfolio section-bg">
   		<div class="container">
-			<div class="section-title">
-      		<h2>Functions</h2>
+			<div class="section-title text-center">
+      		<h2 style="color: seashell">Funktionen</h2>
     	</div>
 
 	    <div class="row" data-aos="fade-up">
 	      <div class="col-lg-12 d-flex justify-content-center">
 	        <ul id="portfolio-flters">
-	          <li data-filter=".filter-1" class="filter-active">Show My Work Schedule</li> <!-- app -->
-	          <li data-filter=".filter-2">Show Premium</li> <!-- card -->
-	          <li data-filter=".filter-3">Show Salary</li> <!-- web -->
-	          <li data-filter=".filter-4">Show Salary For The Year</li>
+	          <li data-filter=".filter-1" class="filter-active">Meinen Arbeitsplan anzeigen</li> <!-- app -->
+	          <li data-filter=".filter-2">Preis anzeigen</li> <!-- card -->
+	          <li data-filter=".filter-3">Gehalt anzeigen</li> <!-- web -->
+	          <li data-filter=".filter-4">Gehalt für das Jahr anzeigen</li>
 	        </ul>
 	      </div>
 	    </div>
 
-	    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+	    <div class="row portfolio-container text-center" data-aos="fade-up" data-aos-delay="100">
 
 			<div class="col-lg-12 col-md-6 portfolio-item filter-1">
 				<div class="portfolio-wrap">
-				<a href="#" style="--clr: crimson;--i:0;"><span>Your schedule is [[${worker_time}]]</span></a>
+				<a href="#" style="--clr: crimson;--i:0;"><span>Ihr Zeitplan ist [[${worker_time}]]</span></a>
 				</div>
 			</div>
 
 			<div class="col-lg-12 col-md-6 portfolio-item filter-2">
 	        	<div class="portfolio-wrap">
-					<a href="#" style="--clr: crimson;--i:0;"><span>Your prize is [[${worker_prize}]]</span></a>
+					<a href="#" style="--clr: crimson;--i:0;"><span>Ihr Preis ist [[${worker_prize}]]</span></a>
 	        	</div>
 	      	</div>
 
 			<div class="col-lg-12 col-md-6 portfolio-item filter-3">
 				<div class="portfolio-wrap">
-					<a href="#" style="--clr: crimson;--i:0;"><span>Your salary is [[${worker_salary}]]</span></a>
+					<a href="#" style="--clr: crimson;--i:0;"><span>Ihr Gehalt ist [[${worker_salary}]]</span></a>
 				</div>
 			</div>
 
 			<div class="col-lg-12 col-md-6 portfolio-item filter-4">
 				<div class="portfolio-wrap">
-					<a href="#" style="--clr: crimson;--i:0;"><span>Your salary per year is [[${worker_year}]]</span></a>
+					<a href="#" style="--clr: crimson;--i:0;"><span>Ihr Gehalt im Jahr ist [[${worker_year}]]</span></a>
 				</div>
 			</div>
-
-
 	    </div>
   </div>
 </div>
 </div>
 
 
-
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>
 
 <script src="/static/vendor/jquery/jquery.min.js" th:src="@{/vendor/jquery/jquery.min.js}"></script>
 <script src="/static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>

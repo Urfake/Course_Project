@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/static/images/иконка.jpeg" th:href="@{images/иконка.jpeg}" rel="icon">
+	<link href="/static/images/icon.jpeg" th:href="@{images/icon.jpeg}" rel="icon">
 	<title>Authorization</title>
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
@@ -24,23 +24,22 @@
 		<br>
 
 		<div class="content">
-			<h1>Personnel Accounting</h1>
-			<p class="par">Personnel Accounting is related to the construction of labor relations between <br> an employer and an employee. It includes registration of vacations, tax deductions, <br> hiring and dismissal. Personnel accounting is mandatory for any company, without <br> exceptions in terms of organizational and legal form and size of staff.</p>
+			<h1>Personalbuchhaltung</h1>
+			<p class="par">Personalbuchhaltung bezieht sich auf den Aufbau von Arbeitsbeziehungen zwischen <br> einem Arbeitgeber und einem Arbeitnehmer. Es umfasst die Registrierung von Urlaub, <br> Steuerabzüge, Einstellung und Entlassung.
+				<br> Die Personalbuchhaltung ist für jedes Unternehmen verpflichtend, ohne <br> Ausnahmen in Bezug auf Organisations- und Rechtsform und Mitarbeitergröße.</p>
 
 			<form class="form" th:action="@{/login}" method="post">
-				<h2>Login Here</h2>
-				<input type="username" name="username" placeholder="Username">
-				<input type="password" name="password" placeholder="Password">
-				<button class="btnn" type="submit" value="submit">Login</button>
+				<h2>Hier anmelden</h2>
+				<input type="username" name="username" placeholder="Nutzername">
+				<input type="password" name="password" placeholder="Passwort">
+				<button class="btnn" type="submit" value="submit">Anmeldung</button>
 				<div th:if="${param.error}" style="margin-top: 10px; text-align: center; color: red">
-					Invalid username and password.
+					Ungültiger Benutzername und Passwort.
 				</div>
 				<div th:if="${param.logout}" style="margin-top: 10px; text-align: center; color: red">
-					You have been logged out.
+					Sie wurden ausgeloggt.
 				</div>
-				<button class="btnn2"><a href="/" style="text-decoration: none; color: black;">Cancel</a></button>
-
-
+				<button class="btnn2"><a href="/" style="text-decoration: none; color: black;">Abbrechen</a></button>
 			</form>
 		</div>
 	</div>

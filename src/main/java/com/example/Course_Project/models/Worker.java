@@ -33,6 +33,14 @@ public class Worker {
         this.salary = salary;
     }
 
+    public Worker(String name, String time_of_work, String weekend, int salary, User user) {
+        this.name = name;
+        this.time_of_work = time_of_work;
+        this.weekend = weekend;
+        this.user = user;
+        this.salary = salary;
+    }
+
     public Worker(String name, String time_of_work, String weekend, int salary) {
         this.name = name;
         this.time_of_work = time_of_work;

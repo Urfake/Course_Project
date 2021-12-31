@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +44,25 @@ public class DirectorController {
         Iterable<Worker> workers = workerRepository.findAll();
         model.addAttribute("managers",managers);
         model.addAttribute("workers",workers);
-        return "director_list";
+        return "director_change";
+    }
+    @RequestMapping("director/change/manager/{id}")
+    public String changeManager(@PathVariable(value = "id") long id, Model model){
+        Manager manager = managerRepository.findById(id).orElseThrow();
+        manager.getUser().setRoles(Collections.singleton(Role.WORKER));
+        Worker worker = new Worker(manager.getName(), manager.getTime_of_work(), manager.getWeekend(), manager.getSalary(), manager.getUser());
+        managerRepository.delete(manager);
+        workerRepository.save(worker);
+        return "redirect:/director";
+    }
+    @RequestMapping("director/change/worker/{id}")
+    public String changeWorker(@PathVariable(value = "id") long id, Model model){
+        Worker worker = workerRepository.findById(id).orElseThrow();
+        worker.getUser().setRoles(Collections.singleton(Role.MANAGER));
+        Manager manager = new Manager(worker.getName(), worker.getTime_of_work(), worker.getWeekend(), worker.getSalary(), worker.getUser());
+        workerRepository.delete(worker);
+        managerRepository.save(manager);
+        return "redirect:/director";
     }
     @GetMapping("/director/list")
     public String director_list(Model model){
@@ -64,8 +79,8 @@ public class DirectorController {
     }
 
     @PostMapping("/director/add/worker")
-    public String director_work_add(@RequestParam String username,@RequestParam String password,@RequestParam String name,@RequestParam int salary, Model model){
-        Worker worker = new Worker(name, salary);
+    public String director_work_add(@RequestParam String username,@RequestParam String password,@RequestParam String name,@RequestParam int salary,@RequestParam String time_of_work, String weekend, Model model){
+        Worker worker = new Worker(name,time_of_work, weekend, salary);
         User user = new User(username, password);
         worker.setUser(user);
         user.setRoles(Collections.singleton(Role.WORKER));
@@ -81,8 +96,8 @@ public class DirectorController {
     }
 
     @PostMapping("/director/add/manager")
-    public String director_man_add(@RequestParam String username,@RequestParam String password,@RequestParam String name,@RequestParam int salary, Model model){
-        Manager manager = new Manager(name, salary);
+    public String director_man_add(@RequestParam String username,@RequestParam String password,@RequestParam String name,@RequestParam int salary,@RequestParam String time_of_work, @RequestParam String weekend, Model model){
+        Manager manager = new Manager(name,time_of_work, weekend, salary);
         User user = new User(username, password);
         manager.setUser(user);
         user.setRoles(Collections.singleton(Role.MANAGER));

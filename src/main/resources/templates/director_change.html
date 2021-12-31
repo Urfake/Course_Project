@@ -12,37 +12,9 @@
     <link rel="stylesheet" href="/static/css/style1.css" th:href="@{/css/style1.css}">
     <link rel="stylesheet" type="text/css" href="/static/css/header.css" th:href="@{/css/header.css}">
     <link rel="stylesheet" type="text/css" href="/static/css/form.css" th:href="@{/css/form.css}">
-    <style>
-        body{
-            min-height: 1000px;
-            background: linear-gradient(
-                    45deg, #1a2d3d, #7094ce);
-        }
-        .button{
-            width: 51px;
-            height: 37px;
-            border-radius: 14px;
-        }
-        .image{
-            position: relative;
-            background: url("/images/trash1.png");
-            background-size: 28px;
-            width: 27px;
-            height: 27.75px;
-        }
-        .image:hover{
-            position: relative;
-            left: 4px;
-            top: 4px;
-            background: url("/images/trash.png");
-            background-size: 28px;
-            width: 27px;
-            height: 27.75px;
-        }
-    </style>
 </head>
 <body>
-<header style="z-index: 1">
+<header>
     <img src="/static/images/header.jpeg" th:src="@{/images/header.jpeg}" class="banner">
     <a href="/director" class="logo">CHECKIT.</a>
 </header>
@@ -80,15 +52,15 @@
                 <td th:text="${el.weekend}">>
                 </td>
                 <td class="select text-center">
-                    <form th:action="'/director/manager/' + ${el.id}+'/remove'" style="height: 45px" method="post">
-                        <button class="button" style="background-color: white; margin: 0" type="submit" onclick='return confirm("Are you sure you want to continue?");'><div class="image"></div></button>
+                    <form th:action="'/director/change/manager/'+ ${el.id}">
+                        <input class="btn btn-secondary" type="submit" onclick='return confirm("Are you sure you want to change position?");' value="Wechseln" style="font-size: 16px; width: 100px; color: whitesmoke;">
                     </form>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin-top: 50px">
         <h1 class="text-center">Arbeiter</h1>
         <table>
             <thead>
@@ -120,9 +92,9 @@
                 </td>
                 <td th:text="${el.weekend}">>
                 </td>
-                <td style="text-align: center">
-                    <form th:action="'/director/worker/' + ${el.id}+'/remove'" method="post" style="height: 45px">
-                        <button class="button" style="background-color: white; margin: 0" type="submit" onclick='return confirm("Are you sure you want to continue?");'><div class="image"></div></button>
+                <td class="select text-center">
+                    <form th:action="'/director/change/worker/'+ ${el.id}">
+                        <input class="btn btn-secondary" type="submit" onclick='return confirm("Are you sure you want to change position?");' value="Wechseln" style="font-size: 16px; width: 100px; color: whitesmoke;">
                     </form>
                 </td>
             </tr>

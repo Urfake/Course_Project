@@ -1,90 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="images/HR.png" rel="icon">
-	<title>HR (Delete worker)</title>
+	<link href="/static/images/HR.png" rel="icon" th:href="@{images/HR.png}">
+	<title>HR (Add new worker)</title>
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-    <link rel="stylesheet" type="text/css" href="/static/js/bootstrap.bundle.js" th:href="@{/js/bootstrap.bundle.js}">
-    <link rel="stylesheet" type="text/css" href="/static/js/main.js" th:href="@{/js/main.js}">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
 
+	<link rel="stylesheet" type="text/css" href="/static/css/header.css" th:href="@{/css/header.css}">
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css" th:href="@{/css/main.css}">
+	<style>
+		body{
+			min-height: 765px;
+			background: linear-gradient(
+					45deg, #1a2d3d, #7094ce);
+		}
+		.button{
+			width: 51px;
+			height: 37px;
+			border-radius: 14px;
+		}
+		.image{
+			position: relative;
+			left: 10px;
+			background: url("/images/trash1.png");
+			background-size: 28px;
+			width: 27px;
+			height: 27.75px;
+		}
+		.image:hover{
+			position: relative;
+			left: 14px;
+			top: 4px;
+			background: url("/images/trash.png");
+			background-size: 28px;
+			width: 27px;
+			height: 27.75px;
+		}
+	</style>
 </head>
 <body>
 
+<header style="z-index: 1">
+	<img src="/static/images/header.jpeg" th:src="@{/images/header.jpeg}" class="banner">
+	<a href="/HR" class="logo">CHECKIT.</a>
+</header>
 
-
-<div class="main" id="main">
-	<div class="navbar">
-		<div class="icon1">
-			<h2 class="logo"><div class="brand"><h1><span>C</span>heck<span>IT</span></h1></div></h2>
-		</div>
-	</div>
-
-	<br>
-	<br>
-
-	<div class="content">
-		<br>
-		<div class="row">
-			<div class="col-lg-6">
-				<h1>HR Manager</h1>
-				<p class="par">An HR manager is a person who manages the staff: motivates, evaluates, and searches for the right specialists. He should have an idea about employees, add a new employee, delete, make personnel changes, etc.</p>
-
-				<button class="cn"><a href="#function">Control <ion-icon name="arrow-down-outline"></ion-icon></a></button>
-			</div>
-			<div class="col-lg-1">
-				
-			</div>
-			<div class="col-lg-5">
-				<img src="/static/images/HR.png" th:src="@{images/HR.png}" width="350">
-			</div>
-			</div>
-		</div>
-	</div>
-</div>
-	
-	
 <section class="function" id="function">
 	<div class="menu">
-		<a href="/HR"><ion-icon name="arrow-undo-outline" class="iconn"></ion-icon></a>
-		<div th:each="el:${workers}" class="alert alert-info mt-2">
-			<h3 th:text="${el.name}"></h3>
-			<form th:action="'/HR/' + ${el.id}+'/remove'" method="post">
-				<input class="btn-danger float-end" type="submit" onclick='return confirm("Are your sure you want to continue?");' value="Remove">
-			</form>
-		</div>
+		<table class="styled-table">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Gehalt</th>
+				<th>Zeitplan</th>
+				<th>Wochenende</th>
+				<th>Löschen</th>
+			</tr>
+			</thead>
+			<tbody th:each="el:${workers}">
+			<tr>
+				<td th:text="${el.name}"></td>
+				<td th:text="${el.salary}"></td>
+				<td th:text="${el.time_of_work}"></td>
+				<td th:text="${el.weekend}"></td>
+				<td style="text-align: center">
+					<form th:action="'/HR/' + ${el.id}+'/remove'" method="post">
+						<button class="button" type="submit" onclick='return confirm("Are you sure you want to continue?");'><div class="image"></div></button>
+					</form>
+				</td>
+			</tr>
+			<!-- and so on... -->
+			</tbody>
+		</table>
 	</div>
 </section>
-
-
-<section id="footer">
-	<div class="footer container">
-		<div class="brand"><h1><span>C</span>heck<span>IT</span></h1></div>
-		<br>
-		<div class="social-icon">
-			<div class="social-item">
-				<a href="#"><img src="images/instagram.png"></a>
-			</div>
-			<div class="social-item">
-				<a href="#"><img src="images/twitter.png"></a>
-			</div>
-			<div class="social-item">
-				<a href="#"><img src="images/facebook.png"></a>
-			</div>
-		</div>
-		<p>Copyright © ERISA. All right reserved</p>
-	</div>
-</section>
-
-
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
-
-
 </body>
+<script>
+	window.addEventListener('scroll',function(){
+		const header = document.querySelector('header');
+		header.classList.toggle('sticky', window.scrollY > 0);
+	});
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js}"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" th:src="@{https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js}"></script>
+<script src="/static/js/main.js" th:src="@{/js/main.js}"></script>
 </html>

@@ -18,30 +18,26 @@
     <a href="/director" class="logo">CHECKIT.</a>
 </header>
 <div class="container" style="width: 60%;top: -100px">
-    <div class="front side" style="
-      position: absolute;
-    top: -144px;
-    left: -308px;
-    width: 1536px;
-    height: 666px;
-background: linear-gradient(
-45deg, #1a2d3d, #7094ce)">
+    <div class="front side" style="height: 600px; margin-top: -100px" th:each="el:${worker}">
+        <h1 class="text-center">Arbeiter</h1>
+        <br>
+        <h2 th:text="${el.name}"></h2>
     </div>
     <div class="back side" style="height: 600px; margin-top: -100px">
         <div class="content">
-            <h1>Edit Worker</h1>
+            <h1>Arbeiter redigieren</h1>
             <form th:each="el:${worker}" method="post" autocomplete="off">
-                <label>Full Name:</label>
-                <input type="text" th:value="${el.name}" name="name" placeholder="Enter name and surname of worker">
-                <label>Schedule:</label>
-                <input type="text" th:value="${el.time_of_work}" name="time_of_work" placeholder="Enter working time of worker" >
-                <label>Weekend:</label>
-                <input type="text" th:value="${el.weekend}" name="weekend" placeholder="Enter workers weekend" >
-                <label>Salary:</label>
-                <input type="text" th:value="${el.salary}" name="salary" placeholder="Enter salary of worker" >
-                <label>Prize:</label>
-                <input type="text" th:value="${el.prize}" name="prize" placeholder="Enter prize of worker">
-                <input type="submit" value="Done">
+                <label>Vollständiger Name:</label>
+                <input type="text" th:value="${el.name}" name="name" placeholder="Vor- und Nachname eingeben">
+                <label>Zeitplan:</label>
+                <input type="text" th:value="${el.time_of_work}" name="time_of_work" placeholder="Zeitplan eingebe" >
+                <label>Wochenende:</label>
+                <input type="text" th:value="${el.weekend}" name="weekend" placeholder="Wochenende eingeben" >
+                <label>Gehalt:</label>
+                <input type="text" th:value="${el.salary}" name="salary" placeholder="Gehalt eingeben" >
+                <label>Preis:</label>
+                <input type="text" th:value="${el.prize}" name="prize" placeholder="Preis eingeben">
+                <input type="submit" value="Fertig">
             </form>
         </div>
     </div>

@@ -33,6 +33,14 @@ public class Manager {
         this.salary = salary;
     }
 
+    public Manager(String name, String time_of_work, String weekend, int salary, User user) {
+        this.user = user;
+        this.name = name;
+        this.time_of_work = time_of_work;
+        this.weekend = weekend;
+        this.salary = salary;
+    }
+
     public Manager(User user, String name, int salary) {
         this.user = user;
         this.name = name;

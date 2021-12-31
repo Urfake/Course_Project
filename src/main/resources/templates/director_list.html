@@ -19,7 +19,8 @@
     <a href="/director" class="logo">CHECKIT.</a>
 </header>
 <div class="row row-cols-1">
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin-top: 200px">
+        <h1 class="text-center">Manager</h1>
         <table>
             <thead>
             <tr>
@@ -27,54 +28,16 @@
                     Name
                 </th>
                 <th>
-                    Salary
+                    Gehalt
                 </th>
                 <th>
-                    Schedule
+                    Zeitplan
                 </th>
                 <th>
-                    Weekend
+                    Wochenende
                 </th>
                 <th>
-                    WORKERS
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="el:${workers}">
-                <td th:text="${el.name}">>
-                </td>
-                <td th:text="${el.salary}">
-                </td>
-                <td th:text="${el.time_of_work}">>
-                </td>
-                <td th:text="${el.weekend}">>
-                </td>
-                <td class="select text-center">
-                    <a th:href="'/director/worker/'+ ${el.id}" class="btn btn-secondary" style="font-size: 16px; width: 100px; color: whitesmoke;">Select</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-12" style="margin-top: 50px">
-        <table>
-            <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Salary
-                </th>
-                <th>
-                    Schedule
-                </th>
-                <th>
-                    Weekend
-                </th>
-                <th>
-                    MANAGERS
+                    MANAGER
                 </th>
             </tr>
             </thead>
@@ -89,7 +52,46 @@
                 <td th:text="${el.weekend}">>
                 </td>
                 <td class="select text-center">
-                    <a th:href="'/director/manager/'+ ${el.id}" class="btn btn-secondary" style="font-size: 16px; width: 100px; color: whitesmoke;">Select</a>
+                    <a th:href="'/director/manager/'+ ${el.id}" class="btn btn-secondary" style="font-size: 16px; width: 100px; color: whitesmoke;">Wählen</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12" style="margin-top: 50px">
+        <h1 class="text-center">Arbeiter</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Gehalt
+                </th>
+                <th>
+                    Zeitplan
+                </th>
+                <th>
+                    Wochenende
+                </th>
+                <th>
+                    ARBEITER
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="el:${workers}">
+                <td th:text="${el.name}">>
+                </td>
+                <td th:text="${el.salary}">
+                </td>
+                <td th:text="${el.time_of_work}">>
+                </td>
+                <td th:text="${el.weekend}">>
+                </td>
+                <td class="select text-center">
+                    <a th:href="'/director/worker/'+ ${el.id}" class="btn btn-secondary" style="font-size: 16px; width: 100px; color: whitesmoke;">Wählen</a>
                 </td>
             </tr>
             </tbody>

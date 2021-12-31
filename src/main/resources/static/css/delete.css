@@ -69,7 +69,7 @@ body {
   z-index: 2;
   background-size: 100vh;
   background-size: cover;
-  background: linear-gradient(45deg, #1a2d3d, #7094ce);
+  background: url(https://wallpaper.dog/large/20395928.gif);
 }
 .back {
   background-color: #333;
